@@ -11,6 +11,8 @@ class Parser_IndexController extends Zend_Controller_Action
     public function indexAction()
     {
         // action body
+        $manager = new Parser_Model_Comics;
+        $this->view->result = $manager->parseAll();
     }
 
 

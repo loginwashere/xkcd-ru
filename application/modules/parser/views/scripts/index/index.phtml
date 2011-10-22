@@ -1,3 +1,11 @@
 <div id="parser">
-    <h2>Parser</h2>
+    <?php echo $this->result; ?>
+    <?php if ($this->comics) :
+        $localPath = realpath(APPLICATION_PATH . '/../public/images/') . '/';?>
+    <h1><?php echo $this->comics->xkcd_title; ?></h1>
+    <img src="<?php echo $localPath . $this->comics->xkcd_filename; ?>"
+         alt="<?php echo $this->comics->xkcd_title; ?>"
+         title="<?php echo $this->comics->xkcd_description; ?>"/>
+    <div id="transcript"><?php echo $this->comics->xkcd_transcription; ?></div>
+    <?php endif; ?>
 </div>

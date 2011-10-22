@@ -25,5 +25,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
                            ->appendFile($view->baseUrl() . '/js/script.js');
     }
 
+    protected function _initRoutes()
+    {
+        $frontController = Zend_Controller_Front::getInstance();
+        $router = $frontController->getRouter();
+        $comics = new Zend_Controller_Router_Route(
+            ':id/',
+            array(
+                'action'      => 'index',
+                'controller'  => 'index',
+                'module'      => 'comics'
+            ),
+            array('id' => '\d+')
+        );
+        $router->addRoute('comics', $comics);
+    }
+
 }
 
