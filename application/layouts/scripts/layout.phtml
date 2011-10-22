@@ -1,0 +1,26 @@
+<?php echo $this->doctype() ?>
+<html>
+    <head>
+        <?php echo $this->headMeta() ?>
+        <?php echo $this->headTitle() ?>
+        <base href="<?php echo $this->baseUrl();?>" />
+        <?php echo $this->headLink(); ?>
+        <?php echo $this->headScript(); ?>
+    </head>
+
+    <body>
+        <div id="container">
+            <header>
+                <h1>
+                    <a href="/">xkcd translation</a>
+                </h1>
+            </header>
+            <div id="main" role="main">
+                <?php echo $this->layout()->content; ?>
+            </div>
+            <footer>
+                <p>&copy; <?php echo date('Y');?> <a href="http://loginwashere.pp.ua/">login.was.here</a></p>
+            </footer>
+        </div> <!--! end of #container -->
+    </body>
+</html>
