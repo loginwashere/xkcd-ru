@@ -1,0 +1,1 @@
+Russian tranlation of xkcd comics
