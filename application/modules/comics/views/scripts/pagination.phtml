@@ -1,0 +1,41 @@
+<?php if ($this->pageCount): ?>
+    <div class="paginationControl">
+        <?php echo $this->firstItemNumber; ?> - <?php echo $this->lastItemNumber; ?>
+        of <?php echo $this->totalItemCount; ?>
+
+        <!-- First page link -->
+        <?php if (isset($this->previous)): ?>
+          <a href="<?php echo $this->url(array('id' => $this->first), 'comics'); ?>">
+            First
+          </a> |
+        <?php else: ?>
+          <span class="disabled">First</span> |
+        <?php endif; ?>
+
+        <!-- Previous page link -->
+        <?php if (isset($this->previous)): ?>
+        <a href="<?php echo $this->url(array('id' => $this->previous), 'comics'); ?>">← Previous</a>
+        <?php endif; ?>
+        <!-- Numbered page links -->
+        <?php foreach ($this->pagesInRange as $page): ?>
+        <?php if ($page != $this->current): ?>
+        <a href="<?php echo $this->url(array('id' => $page), 'comics'); ?>"><?php echo $page; ?></a>
+        <?php else: ?>
+        <span class="current"><?php echo $page; ?></span>
+        <?php endif; ?>
+        <?php endforeach; ?>
+        <!-- Next page link -->
+        <?php if (isset($this->next)): ?>
+        <a href="<?php echo $this->url(array('id' => $this->next), 'comics'); ?>">Next →</a>
+        <?php endif; ?>
+        <!-- Last page link -->
+        <?php if (isset($this->next)): ?>
+          <a href="<?php echo $this->url(array('id' => $this->last), 'comics'); ?>">
+            Last
+          </a>
+        <?php else: ?>
+          <span class="disabled">Last</span>
+        <?php endif; ?>
+
+    </div>
+<?php endif; ?>
