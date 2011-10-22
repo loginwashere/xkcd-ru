@@ -1,0 +1,17 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+
+/* TEAM */
+  Dmitriy Savchenko
+  Site: loginwashere.pp.ua
+  Twitter: loginwashere
+  Location: Kharkiv, Ukraine
+
+/* THANKS */
+  Randall Munroe: http://xkcd.com
+
+/* SITE */
+  Standards: HTML5, CSS3
+  Components: Modernizr, jQuery, Zend Framework
+  Source: https://github.com/loginwashere/xkcd-ru
