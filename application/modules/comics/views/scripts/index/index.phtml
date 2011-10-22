@@ -1,9 +1,20 @@
 <div id="comics">
-    <?php if ($this->comics) : ?>
-    <h1><?php echo $this->comics->xkcd_title; ?></h1>
-    <img src="<?php echo '/images/' . $this->comics->xkcd_filename; ?>"
-         alt="<?php echo $this->comics->xkcd_title; ?>"
-         title="<?php echo $this->comics->xkcd_description; ?>"/>
-    <div id="transcript"><?php echo nl2br($this->comics->xkcd_transcription); ?></div>
+    <?php $pagination = '';?>
+
+    <?php if (count($this->paginator)):
+        $pagination = $this->paginationControl($this->paginator,
+                                    'Sliding',
+                                    'pagination.phtml');
+        echo $pagination;
+    ?>
+        <?php foreach ($this->paginator as $comics) : ?>
+            <h1><?php echo $comics['xkcd_title']; ?></h1>
+            <img src="<?php echo '/images/' . $comics['xkcd_filename']; ?>"
+                 alt="<?php echo $comics['xkcd_title']; ?>"
+                 title="<?php echo $comics['xkcd_description']; ?>"/>
+            <div id="transcript"><?php echo nl2br($comics['xkcd_transcription']); ?></div>
+        <?php endforeach; ?>
     <?php endif; ?>
+
+    <?php echo $pagination; ?>
 </div>
