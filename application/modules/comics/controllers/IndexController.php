@@ -15,6 +15,22 @@ class Comics_IndexController extends Zend_Controller_Action
     {
         $id = $this->_getParam('id', null, 'int');
         $model = new Comics_Model_Comics();
-        $this->view->paginator = $model->getComics($id);
+        
+        $paginator = $model->getComics($id);
+        $this->view->comics = $paginator->getCurrentItems()->current();
+        $this->view->pagination = $this->view->paginationControl(
+            $paginator,
+            'Sliding',
+            'pagination.phtml'
+        );
+        
+        if ($this->getRequest()->isXmlHttpRequest()) {
+            $this->_helper->json(
+                array(
+                    'comics' => $this->view->comics,
+                    'pagination' => $this->view->pagination
+                )
+            );
+        }
     }
 }

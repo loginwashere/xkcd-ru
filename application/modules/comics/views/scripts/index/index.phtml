@@ -1,18 +1,9 @@
 <div id="comics">
-<?php if ($this->paginator):
-    $pagination = $this->paginationControl(
-        $this->paginator,
-        'Sliding',
-        'pagination.phtml'
-    );
-    $comics = $this->paginator->getCurrentItems()->current();
-?>
-    <div class="pagination"><?php echo $pagination; ?></div>
-    <h2><?php echo $comics['xkcd_title']; ?></h2>
-    <img src="<?php echo '/images/' . $comics['xkcd_filename']; ?>"
-        alt="<?php echo $comics['xkcd_title']; ?>"
-        title="<?php echo $comics['xkcd_description']; ?>"/>
-    <div class="transcript"><?php echo nl2br($comics['xkcd_transcription']); ?></div>
-    <div class="pagination"><?php echo $pagination; ?></div>
-<?php endif; ?>
+    <div class="pagination"><?php echo $this->pagination; ?></div>
+    <h2><?php echo $this->comics['xkcd_title']; ?></h2>
+    <img src="<?php echo '/images/' . $this->comics['xkcd_filename']; ?>"
+        alt="<?php echo $this->comics['xkcd_title']; ?>"
+        title="<?php echo $this->comics['xkcd_description']; ?>"/>
+    <div class="transcript"><?php echo nl2br($this->comics['xkcd_transcription']); ?></div>
+    <div class="pagination"><?php echo $this->pagination; ?></div>
 </div>
