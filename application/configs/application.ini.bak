@@ -13,9 +13,12 @@ resources.view[] =
 resources.layout.layoutPath = APPLICATION_PATH "/layouts/scripts/"
 
 resources.db.adapter = "PDO_MYSQL"
-resources.db.params.host = "localhost"
-resources.db.params.username = "xkcd"
-resources.db.params.password = "743961"
+; Enter your db host
+resources.db.params.host = ""
+; Enter your db user
+resources.db.params.username = ""
+; Enter your db password
+resources.db.params.password = ""
 resources.db.params.dbname = "xkcd"
 resources.db.params.charset = "utf8"
 resources.frontController.moduleDirectory = APPLICATION_PATH "/modules"
