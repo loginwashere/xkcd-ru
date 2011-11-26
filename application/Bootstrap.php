@@ -19,7 +19,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $view->headLink()->prependStylesheet($view->baseUrl() . '/css/style.css');
 
         // Set the initial js:
-        $view->headScript()->appendFile($view->baseUrl() . '/js/modernizr-2.0.6.min.js')
+        $view->headScript()->appendFile($view->baseUrl() . '/js/libs/modernizr-2.0.6.min.js')
                            ->appendFile($view->baseUrl() . '/js/libs/jquery-1.6.2.js')
                            ->appendFile($view->baseUrl() . '/js/plugins.js')
                            ->appendFile($view->baseUrl() . '/js/script.js');
@@ -30,16 +30,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $frontController = Zend_Controller_Front::getInstance();
         $router = $frontController->getRouter();
         $comics = new Zend_Controller_Router_Route(
-            ':id/',
+            '/:id/',
             array(
                 'action'      => 'index',
                 'controller'  => 'index',
                 'module'      => 'comics'
-            ),
-            array('id' => '\d+')
+            )
         );
         $router->addRoute('comics', $comics);
     }
-
 }
 
