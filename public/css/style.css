@@ -232,6 +232,15 @@ body {
     -moz-border-radius: 5px;
     border-radius: 5px;
 }
+.pagination {
+    margin: 10px 0;
+}
+#comics {
+    text-align: center;
+}
+#comics .transcript {
+    display: none;
+}
 
 
 
